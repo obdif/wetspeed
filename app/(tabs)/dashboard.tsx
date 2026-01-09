@@ -18,6 +18,8 @@ import { BalanceCard } from '../../components/BalanceCard';
 import { TransactionItem } from '../../components/TransactionItem';
 import NoTransactionsFound from '../../components/NoTransactionsFound';
 
+import SafeScreen from '@/components/SafeScreen';
+
 // Mock data for demo purposes - updated with transaction types
 const demoTransactions = [
   { 
@@ -60,7 +62,7 @@ const demoTransactions = [
 const demoSummary = {
   income: 4000.0,
   expenses: 561.49,
-  balance: 3949.5,
+  balance: 12349.5,
 };
 
 // Exchange rates for currency conversion
@@ -128,6 +130,7 @@ export default function Dashboard() {
   if (isLoading && !refreshing) return <PageLoader />;
 
   return (
+    <SafeScreen edges={['top', 'left', 'right']}>
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.header}>
@@ -151,7 +154,6 @@ export default function Dashboard() {
           </View>
         </View>
 
-        {/* Pass the raw summary and handle currency conversion in BalanceCard */}
         <BalanceCard 
           summary={summary} 
           onCurrencyChange={handleCurrencyChange}
@@ -165,7 +167,7 @@ export default function Dashboard() {
               alignItems: 'center',
               backgroundColor: COLORS.card,
               paddingHorizontal: 8,
-              paddingVertical: 4,
+              paddingVertical: 2,
               borderRadius: 12,
             }}>
               <Ionicons name="swap-horizontal-outline" size={12} color={COLORS.textLight} />
@@ -197,6 +199,15 @@ export default function Dashboard() {
         showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       />
+
+        <View>
+          <View>
+            
+            <Text>Ads</Text>
+          </View>
+        </View>
+
     </View>
+    </SafeScreen>
   );
 }

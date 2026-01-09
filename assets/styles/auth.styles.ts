@@ -13,8 +13,8 @@ export const styles = StyleSheet.create({
    wettext:{
     fontWeight:"bold",
     position: "absolute",
-    top: 0,
-    fontSize: 29,
+    top: 60,
+    fontSize: 22,
     color: COLORS.text,
     textAlign: "center",
     margin: "auto",
@@ -23,10 +23,10 @@ export const styles = StyleSheet.create({
   },
 
   welcome: {
-    top: 10,
+    top:0,
     position: "relative",
     alignItems: "center",
-    fontSize: 40,
+    fontSize: 30,
     textAlign:"center",
     paddingHorizontal: 24,
     fontWeight: "bold",
@@ -35,19 +35,21 @@ export const styles = StyleSheet.create({
 
  
   description: {
-    fontSize: 16,
+    fontSize: 14,
     color: COLORS.textLight,
     textAlign: "center",
-    marginVertical: 52,
+    marginBottom: 20,
+    // marginVertical: 52,
   },
 
   illustration: {
-    height: 280,
-    width: 300,
+    height: 250,
+    width: 280,
     resizeMode: "contain",
     position: "relative",
     alignContent: "center",
     margin: "10%",
+    top: 10,
   },
   title: {
     fontSize: 32,
@@ -59,9 +61,8 @@ export const styles = StyleSheet.create({
   label:{
     fontSize: 18,
     color: COLORS.text,
-    marginBottom: 8,
-    // fontStyle: "italic",
-    marginTop:10,
+    marginBottom: 5,
+    marginTop: 8,
     fontWeight: "bold",
   },
   input: {
@@ -82,8 +83,8 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 1,
+    marginBottom: 5,
   },
   buttonText: {
     color: COLORS.white,

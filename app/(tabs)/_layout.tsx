@@ -1,4 +1,3 @@
-// app/(tabs)/_layout.tsx
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '@/constants/colors';
@@ -19,7 +18,7 @@ export default function TabsLayout() {
         name="transactions"
         options={{
           title: 'Transactions',
-          tabBarIcon: ({ color, size }) => <Ionicons name="list" size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="list" size={size} color={color} />,  
         }}
       />
       <Tabs.Screen
@@ -29,7 +28,8 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="card" size={size} color={color} />,
         }}
       />
-      <Tabs.Screen
+
+      <Tabs.Screen 
         name="profile"
         options={{
           title: 'Profile',

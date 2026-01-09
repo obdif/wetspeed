@@ -44,13 +44,23 @@ export const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 14,
     color: COLORS.textLight,
-    marginBottom: 2,
+    marginBottom: 1,
   },
   usernameText: {
     fontSize: 16,
     fontWeight: "600",
     color: COLORS.text,
   },
+
+  balanceGrid:{
+    display: "flex",
+    position: "relative",
+    justifyContent: "space-between", 
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+
   currencyContainer: {
     position: "relative",
     margin: "auto",
@@ -62,7 +72,7 @@ export const styles = StyleSheet.create({
 
   currencyPicker: {
     color: COLORS.white,
-    fontSize: 39,
+    fontSize: 30,
   },
 
   balanceHeader: {
@@ -111,9 +121,9 @@ export const styles = StyleSheet.create({
   },
   balanceCard: {
     backgroundColor: COLORS.card,
-    borderRadius: 20,
-    padding: 20,
-    marginBottom: 20,
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 15,
     shadowColor: COLORS.shadow,
     shadowOffset: {
       width: 0,
@@ -129,10 +139,10 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   balanceAmount: {
-    fontSize: 32,
+    fontSize: 25,
     fontWeight: "bold",
     color: COLORS.text,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   balanceStats: {
     flexDirection: "row",
@@ -156,15 +166,15 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: 15,
+    fontWeight: "500",
     color: COLORS.text,
-    marginBottom: 15,
+    marginBottom: 1,
   },
   transactionCard: {
     backgroundColor: COLORS.card,
-    borderRadius: 12,
-    marginBottom: 10,
+    borderRadius: 10,
+    marginBottom: 8,
     flexDirection: "row",
     alignItems: "center",
     shadowColor: COLORS.shadow,
@@ -179,7 +189,7 @@ export const styles = StyleSheet.create({
   transactionContent: {
     flex: 1,
     flexDirection: "row",
-    padding: 15,
+    padding: 10,
     alignItems: "center",
   },
   categoryIconContainer: {
@@ -195,22 +205,22 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   transactionTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "500",
     color: COLORS.text,
-    marginBottom: 4,
+    marginBottom: 2,
   },
   transactionCategory: {
-    fontSize: 14,
+    fontSize: 13,
     color: COLORS.textLight,
   },
   transactionRight: {
     alignItems: "flex-end",
   },
   transactionAmount: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "600",
-    marginBottom: 4,
+    marginBottom: 3,
   },
   transactionDate: {
     fontSize: 12,
@@ -281,15 +291,15 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 10,
-    paddingBottom: 5,
+    marginBottom: 8,
+    paddingBottom: 2,
   },
   transactionsList: {
     flex: 1,
     marginHorizontal: 20,
   },
   transactionsListContent: {
-    paddingBottom: 20,
+    paddingBottom: 1,
   },
 
 
@@ -317,7 +327,7 @@ categoriesStatusContainer: {
 
 categoriesStatus: {
   width: "48%",
-  height: 30,
+  height: 35,
 },
 
 

@@ -9,22 +9,30 @@ container: {
     flex: 1,
     backgroundColor: COLORS.background,
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingTop: 60,
-    paddingBottom: 20,
+  wideContainer: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+    width: '100%',
+    // boxShadow: `0 2px 4px ${COLORS.shadow}`,
+  
   },
-  headerTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: COLORS.text,
+
+
+  profileCard: {
+    marginHorizontal: 0,
+    marginBottom: 10,
+    paddingHorizontal: 15,
+    paddingVertical:5,
+    // padding: 14,
+    // shadowColor: COLORS.shadow,
+    // shadowOffset: { width: 0, height: 4 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 8,
+    // elevation: 4,
   },
-  editButton: {
-    width: 44,
-    height: 44,
+    editButton: {
+    width: 40,
+    height: 40,
     borderRadius: 22,
     backgroundColor: COLORS.card,
     justifyContent: 'center',
@@ -35,116 +43,62 @@ container: {
     shadowRadius: 4,
     elevation: 2,
   },
-  profileCard: {
-    backgroundColor: COLORS.card,
-    borderRadius: 20,
-    marginHorizontal: 20,
-    marginBottom: 20,
-    padding: 24,
-    shadowColor: COLORS.shadow,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
-  },
   profileHeader: {
     flexDirection: 'row',
-    marginBottom: 24,
+    marginBottom: 14,
+    shadowColor: COLORS.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  avatarContainer: {
-    position: 'relative',
-    marginRight: 16,
-  },
-  avatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-  },
-  avatarPlaceholder: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: COLORS.border,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   verifiedBadge: {
     position: 'absolute',
+    display: 'flex',
+    zIndex: 9999,
     bottom: 2,
-    right: 2,
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    left: 44,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
     backgroundColor: '#10b981',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
     borderColor: COLORS.card,
+    
   },
   profileInfo: {
     flex: 1,
     justifyContent: 'center',
   },
   userName: {
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: 'bold',
     color: COLORS.text,
-    marginBottom: 4,
-  },
-  userEmail: {
-    fontSize: 16,
-    color: COLORS.textLight,
     marginBottom: 2,
   },
-  userPhone: {
-    fontSize: 16,
-    color: COLORS.textLight,
-    marginBottom: 8,
-  },
-  joinDate: {
-    fontSize: 14,
-    color: COLORS.textLight,
-    fontStyle: 'italic',
-  },
-  profileStats: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingTop: 20,
-    borderTopWidth: 1,
-    borderTopColor: COLORS.border,
-  },
-  statItem: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  statDivider: {
-    borderRightWidth: 1,
-    borderLeftWidth: 1,
-    borderColor: COLORS.border,
-  },
-  statValue: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  userEmail: {
+    fontSize: 12,
     color: COLORS.text,
-    marginBottom: 4,
+    marginBottom: 2,
   },
-  statLabel: {
-    fontSize: 14,
-    color: COLORS.textLight,
-  },
+
+
   section: {
-    marginBottom: 24,
+    marginBottom: 20,
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '600',
     color: COLORS.text,
-    marginBottom: 12,
+    marginBottom: 10,
   },
   menuContainer: {
     backgroundColor: COLORS.card,
-    borderRadius: 16,
+    borderRadius: 10,
     shadowColor: COLORS.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -155,7 +109,7 @@ container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 16,
+    paddingVertical: 15,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
@@ -175,7 +129,7 @@ container: {
     marginRight: 12,
   },
   menuItemText: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '500',
     color: COLORS.text,
   },
@@ -208,4 +162,19 @@ container: {
     color: COLORS.textLight,
     fontStyle: 'italic',
   },
+
+    profile: {
+    width: 65,
+    height: 65,
+    borderRadius: 52.5,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    marginRight: 7,
+  },
+  profileImage: {
+    width: 65,
+    height: 65,
+  },
+
 });

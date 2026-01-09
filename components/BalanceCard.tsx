@@ -105,8 +105,16 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
 
   return (
     <View style={styles.balanceCard}>
+
+      <View style={styles.balanceGrid}>
+      {/* Balance Header */}
+      <View style={styles.balanceHeader}>
+        <Text style={styles.balanceTitle}>Total Balance</Text>
+      </View>
+
+
       {/* Currency Selector */}
-      <View style={{ marginBottom: 10, ...styles.currencyContainer}}>
+      <View style={{ marginBottom: 1, ...styles.currencyContainer}}>
         <View>
           <DropDownPicker
             open={open}
@@ -125,14 +133,14 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
               borderColor: COLORS.border,
               borderRadius: 8,
               marginTop: 5,
-              width: "48%"
+              width: "100%"
             }}
             style={{
               backgroundColor: 'transparent',
               borderColor: COLORS.border,
               borderRadius: 8,
-              minHeight: 35,
-              width: "48%",
+              minHeight: 30,
+              width: "90%",
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -162,13 +170,10 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
         </View>
       </View>
 
-      {/* Balance Header */}
-      <View style={styles.balanceHeader}>
-        <Text style={styles.balanceTitle}>Total Balance</Text>
       </View>
 
       {/* Balance Amount and Eye Icon */}
-      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 15 }}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
         <Text style={styles.balanceAmount}>
           {getCurrentCurrencySymbol()}{convertedSummary.balance.toLocaleString('en-US', {
             minimumFractionDigits: 2,
@@ -185,7 +190,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
       <View style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingTop: 15,
+        paddingTop: -10,
         // borderTopWidth: 1,
         // borderTopColor: COLORS.border,
       }}>
@@ -194,7 +199,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
           style={{
             alignItems: 'center',
             flex: 1,
-            paddingVertical: 8,
+            paddingVertical: 4,
           }}
           onPress={handleSend}
         >
@@ -205,7 +210,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
             backgroundColor: 'rgba(74, 144, 226, 0.15)',
             justifyContent: 'center',
             alignItems: 'center',
-            marginBottom: 6,
+            marginBottom: 2,
           }}>
             <Ionicons name="paper-plane-outline" size={30} color={COLORS.primary || '#4A90E2'} />
           </View>
@@ -222,7 +227,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
           style={{
             alignItems: 'center',
             flex: 1,
-            paddingVertical: 8,
+            paddingVertical: 4,
           }}
           onPress={handleAddMoney}
         >
@@ -233,7 +238,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
             backgroundColor: 'rgba(34, 197, 94, 0.15)',
             justifyContent: 'center',
             alignItems: 'center',
-            marginBottom: 6,
+            marginBottom: 2,
           }}>
             <Ionicons name="add-circle-outline" size={30} color={COLORS.income || '#22C55E'} />
           </View>
@@ -250,7 +255,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
           style={{
             alignItems: 'center',
             flex: 1,
-            paddingVertical: 8,
+            paddingVertical: 4,
           }}
           onPress={handleConvert}
         >
@@ -261,7 +266,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
             backgroundColor: 'rgba(245, 158, 11, 0.15)',
             justifyContent: 'center',
             alignItems: 'center',
-            marginBottom: 6,
+            marginBottom: 2,
           }}>
             <Ionicons name="swap-horizontal-outline" size={30} color="#F59E0B" />
           </View>
@@ -278,7 +283,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
           style={{
             alignItems: 'center',
             flex: 1,
-            paddingVertical: 8,
+            paddingVertical: 4,
           }}
           onPress={handleWithdraw}
         >
@@ -289,7 +294,7 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
             backgroundColor: 'rgba(239, 68, 68, 0.15)',
             justifyContent: 'center',
             alignItems: 'center',
-            marginBottom: 6,
+            marginBottom: 2,
           }}>
             <Ionicons name="card-outline" size={30} color={COLORS.expense || '#EF4444'} />
           </View>

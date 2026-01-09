@@ -8,11 +8,12 @@ import {
   Image,
   Switch,
   Alert,
-  StyleSheet,
+  StatusBar
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '@/constants/colors';
 import { styles } from '../../assets/styles/profile.styles';
+import SafeScreen from '@/components/SafeScreen';
 
 interface ProfileProps {
   user?: {
@@ -29,10 +30,8 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = ({
   user = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    joinDate: '2023-01-15',
+    name: 'Adekunle Blessing',
+    email: 'blessinme4u@gmail.com',
     isVerified: true,
   },
   onLogout = () => console.log('Logout pressed'),
@@ -169,96 +168,82 @@ const Profile: React.FC<ProfileProps> = ({
   );
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Profile</Text>
-        <TouchableOpacity style={styles.editButton} onPress={onEditProfile}>
-          <Ionicons name="create-outline" size={20} color={COLORS.primary} />
-        </TouchableOpacity>
-      </View>
+    <SafeScreen edges={['top', 'left', 'right']}>
+
+    <View style={styles.wideContainer} >
+
 
       {/* Profile Card */}
       <View style={styles.profileCard}>
         <View style={styles.profileHeader}>
-          <View style={styles.avatarContainer}>
-            {user.avatar ? (
-              <Image source={{ uri: user.avatar }} style={styles.avatar} />
-            ) : (
-              <View style={styles.avatarPlaceholder}>
-                <Ionicons name="person" size={40} color={COLORS.textLight} />
-              </View>
-            )}
+          <View style={styles.profile}>
+            <Image
+              source={require('../../assets/images/profile2.jpg')}
+              style={styles.profileImage}
+              resizeMode="contain"
+            />
+          
+          </View>
             {user.isVerified && (
               <View style={styles.verifiedBadge}>
                 <Ionicons name="checkmark" size={14} color={COLORS.white} />
               </View>
             )}
-          </View>
           <View style={styles.profileInfo}>
             <Text style={styles.userName}>{user.name}</Text>
             <Text style={styles.userEmail}>{user.email}</Text>
-            <Text style={styles.userPhone}>{user.phone}</Text>
-            <Text style={styles.joinDate}>
-              Member since {new Date(user.joinDate).toLocaleDateString()}
-            </Text>
+
+          </View>
+          <TouchableOpacity style={styles.editButton} onPress={onEditProfile}>
+            <Ionicons name="settings-outline" size={20} color={COLORS.primary} />
+          </TouchableOpacity>
+        </View>
+
+
+      </View>
+
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+
+
+        {/* Profile Menu Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Account</Text>
+          <View style={styles.menuContainer}>
+            {profileMenuItems.map(renderMenuItem)}
           </View>
         </View>
 
-        {/* Profile Stats */}
-        <View style={styles.profileStats}>
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>24</Text>
-            <Text style={styles.statLabel}>Transactions</Text>
-          </View>
-          <View style={[styles.statItem, styles.statDivider]}>
-            <Text style={styles.statValue}>$2,450</Text>
-            <Text style={styles.statLabel}>Total Spent</Text>
-          </View>
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>5</Text>
-            <Text style={styles.statLabel}>Cards</Text>
+        {/* Settings Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Preferences</Text>
+          <View style={styles.menuContainer}>
+            {settingsMenuItems.map(renderMenuItem)}
           </View>
         </View>
-      </View>
 
-      {/* Profile Menu Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Account</Text>
-        <View style={styles.menuContainer}>
-          {profileMenuItems.map(renderMenuItem)}
+        {/* Support Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Support</Text>
+          <View style={styles.menuContainer}>
+            {supportMenuItems.map(renderMenuItem)}
+          </View>
         </View>
-      </View>
 
-      {/* Settings Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Preferences</Text>
-        <View style={styles.menuContainer}>
-          {settingsMenuItems.map(renderMenuItem)}
+        {/* Logout Button */}
+        <View style={styles.section}>
+          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+            <Ionicons name="log-out-outline" size={22} color={COLORS.white} />
+            <Text style={styles.logoutButtonText}>Logout</Text>
+          </TouchableOpacity>
         </View>
-      </View>
 
-      {/* Support Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Support</Text>
-        <View style={styles.menuContainer}>
-          {supportMenuItems.map(renderMenuItem)}
+        {/* App Version */}
+        <View style={styles.versionContainer}>
+          <Text style={styles.versionText}>Version 1.0.0</Text>
         </View>
-      </View>
-
-      {/* Logout Button */}
-      <View style={styles.section}>
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <Ionicons name="log-out-outline" size={22} color={COLORS.white} />
-          <Text style={styles.logoutButtonText}>Logout</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* App Version */}
-      <View style={styles.versionContainer}>
-        <Text style={styles.versionText}>Version 1.0.0</Text>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
+    </SafeScreen>
   );
 };
 

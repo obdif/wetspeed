@@ -1,4 +1,3 @@
-// components/TransactionItem.tsx
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { styles } from '../assets/styles/home.styles';
@@ -83,7 +82,7 @@ export const TransactionItem = ({ item, onDelete, selectedCurrency, currencySymb
         ]}>
           <Ionicons 
             name={getTransactionIcon()} 
-            size={20} 
+            size={18} 
             color={isPositive ? COLORS.income || '#22C55E' : COLORS.expense || '#EF4444'} 
           />
         </View>
@@ -109,7 +108,7 @@ export const TransactionItem = ({ item, onDelete, selectedCurrency, currencySymb
           <View style={{ 
             flexDirection: 'row', 
             alignItems: 'center', 
-            marginBottom: 4 
+            marginBottom: 2 
           }}>
             {/* Directional Arrow */}
             <View style={{

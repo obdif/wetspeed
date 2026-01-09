@@ -8,6 +8,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { styles } from '../../assets/styles/home.styles';
 import { TransactionItem } from '../../components/TransactionItem';
 import NoTransactionsFound from '../../components/NoTransactionsFound';
+import SafeScreen from '@/components/SafeScreen';
 
 const demoTransactions = [
   { 
@@ -44,6 +45,46 @@ const demoTransactions = [
   },
   { 
     id: '5', 
+    title: 'Adekunle Blessing', 
+    amount: 2000.0, 
+    date: '2025-08-23',
+    type: 'receive',
+    status: 'successful'
+  },
+  { 
+    id: '6', 
+    title: 'Sarah Wilson', 
+    amount: 150.0, 
+    date: '2025-08-18',
+    type: 'receive',
+    status: 'pending'
+  },
+    { 
+    id: '7', 
+    title: 'USD to NGN Swap', 
+    amount: -1500.99, 
+    date: '2025-08-24',
+    type: 'swap',
+    status: 'failed'
+  },
+  { 
+    id: '8', 
+    title: 'Adekunle Blessing', 
+    amount: 2000.0, 
+    date: '2025-08-23',
+    type: 'receive',
+    status: 'successful'
+  },
+  { 
+    id: '9', 
+    title: 'Sarah Wilson', 
+    amount: 150.0, 
+    date: '2025-08-18',
+    type: 'receive',
+    status: 'pending'
+  },
+  { 
+    id: '10', 
     title: 'USD to NGN Swap', 
     amount: -1500.99, 
     date: '2025-08-24',
@@ -119,9 +160,10 @@ export default function Transactions() {
   };
 
   return (
+    <SafeScreen edges={['top', 'left', 'right']}>
     <View style={styles.transactionContainer}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', }}>Transactions</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 15 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', }}>Transactions</Text>
         <TouchableOpacity onPress={() => console.log('Download pressed')} style={{ marginLeft: 'auto' }}>
           <Text style={{ color: COLORS.primary }}>Download</Text>
         </TouchableOpacity>
@@ -202,5 +244,6 @@ export default function Transactions() {
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       />
     </View>
+    </SafeScreen>
   );
 }

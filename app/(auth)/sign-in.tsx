@@ -6,7 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { styles } from '../../assets/styles/auth.styles';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/colors';
-
+import SafeScreen from '@/components/SafeScreen';
 export default function SignIn() {
   const router = useRouter();
   const [emailAddress, setEmailAddress] = useState('test@gmail.com');
@@ -28,6 +28,7 @@ export default function SignIn() {
   };
 
   return (
+    <SafeScreen edges={['top', 'left', 'right']}>
     <KeyboardAwareScrollView
       style={{ flex: 1 }}
       contentContainerStyle={{ flexGrow: 1 }}
@@ -85,5 +86,6 @@ export default function SignIn() {
         </View>
       </View>
     </KeyboardAwareScrollView>
+    </SafeScreen>
   );
 }

@@ -1,18 +1,18 @@
 // app/_layout.tsx
 import { Stack } from 'expo-router';
-import SafeScreen from '@/components/SafeScreen';
-import { StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
 export default function RootLayout() {
   return (
-    <SafeScreen>
+    <SafeAreaProvider>
+      <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false }}>
-        
-        <Stack.Screen name="(auth)/getstarted" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)/sign-in" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)/sign-up" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)/getstarted" />
+        <Stack.Screen name="(auth)/sign-in" />
+        <Stack.Screen name="(auth)/sign-up" />
+        <Stack.Screen name="(tabs)" />
       </Stack>
-    </SafeScreen>
+    </SafeAreaProvider>
   );
 }

@@ -7,6 +7,7 @@ const CARD_HEIGHT = CARD_WIDTH * 0.69;
 
 export const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 20,
     backgroundColor: COLORS.background,
   },
@@ -295,11 +296,11 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
   },
   infoGrid: {
-    flexDirection: "row",
     flexWrap: "wrap",
+    maxWidth: "100%",
   },
   infoItem: {
-    width: "50%",
+    width: "70%",
     marginBottom: 16,
   },
   infoLabel: {
@@ -363,4 +364,19 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
     marginLeft: 8,
   },
+
+    button: {
+    backgroundColor: COLORS.primary,
+    borderRadius: 12,
+    padding: 16,
+    alignItems: "center",
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: COLORS.white,
+    fontSize: 18,
+    fontWeight: "600",
+  },
+
 });

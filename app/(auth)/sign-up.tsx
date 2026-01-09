@@ -5,7 +5,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { styles } from "../../assets/styles/auth.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants/colors";
-
+import SafeScreen from '@/components/SafeScreen';
 
 const SignUp = () => {
     // const {isLoaded, signUp, setActive} = useSignUp();
@@ -21,6 +21,7 @@ const SignUp = () => {
 
     if (verificationCode) {
         return (
+            <SafeScreen edges={['top', 'left', 'right']}>
             <View style={styles.verificationContainer}>
                 <Text style={styles.verificationTitle}>Verify your email</Text>
 
@@ -36,10 +37,12 @@ const SignUp = () => {
                     <Text style={styles.buttonText}>Verify</Text>
                 </TouchableOpacity>
             </View>
+            </SafeScreen>
         );
     }
 
     return (
+        <SafeScreen edges={['top', 'left', 'right']}>
         <KeyboardAwareScrollView
             style={{ flex: 1 }}
             contentContainerStyle={{ flexGrow: 1 }}
@@ -52,8 +55,8 @@ const SignUp = () => {
             <Text>WetSpeed</Text>
         </Text> */}
                 {/* <Image source={require("../../assets/images/revenue-i3.png")} style={styles.illustration} /> */}
-                <Text style={{ marginTop: 30, ...styles.wettext }}>Create Account</Text>
-                <Text style={{ marginTop: -19, position: 'relative', top: -20, margin: 'auto', ...styles.description }}>Join the WetSpeed community today!</Text>
+                <Text style={{ marginTop: -30, ...styles.wettext }}>Create Account</Text>
+                <Text style={{ marginTop: -10, position: 'relative', ...styles.description }}>Join the WetSpeed community today!</Text>
 
                 <View>
                     <Text style={styles.label}>Full Name</Text>
@@ -118,6 +121,7 @@ const SignUp = () => {
 
             </View>
         </KeyboardAwareScrollView>
+        </SafeScreen>
     );
 };
 

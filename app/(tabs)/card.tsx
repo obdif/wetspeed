@@ -1,4 +1,3 @@
-// Card.tsx
 import React, { useState, useRef } from 'react';
 import {
   View,
@@ -7,10 +6,12 @@ import {
   Animated,
   Dimensions,
   StyleSheet,
+  ScrollView
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '@/constants/colors';
 import { styles } from '../../assets/styles/card.styles';
+import SafeScreen from '@/components/SafeScreen';
 
 interface CardProps {
   cardNumber?: string;
@@ -38,13 +39,13 @@ const Card: React.FC<CardProps> = ({
 
   const flipCard = () => {
     const toValue = isFlipped ? 0 : 1;
-    
+
     Animated.timing(flipAnimation, {
       toValue,
       duration: 600,
       useNativeDriver: true,
     }).start();
-    
+
     setIsFlipped(!isFlipped);
   };
 
@@ -83,6 +84,8 @@ const Card: React.FC<CardProps> = ({
   };
 
   return (
+    <SafeScreen edges={['top', 'left', 'right']}>
+      <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
       {/* Card Container */}
       <View style={styles.cardContainer}>
@@ -136,7 +139,7 @@ const Card: React.FC<CardProps> = ({
             <View style={styles.gradientBackgroundBack}>
               {/* Magnetic Strip */}
               <View style={styles.magneticStrip} />
-              
+
               {/* Signature Strip and CVV */}
               <View style={styles.backContent}>
                 <View style={styles.signatureStrip}>
@@ -144,11 +147,11 @@ const Card: React.FC<CardProps> = ({
                     <Text style={styles.cvvText}>{cvv}</Text>
                   </View>
                 </View>
-                
+
                 <Text style={styles.signatureLabel}>
                   AUTHORIZED SIGNATURE - NOT VALID UNLESS SIGNED
                 </Text>
-                
+
                 <View style={styles.customerServiceInfo}>
                   <Text style={styles.customerServiceText}>
                     Customer Service: 1-800-XXX-XXXX
@@ -175,33 +178,38 @@ const Card: React.FC<CardProps> = ({
           <Ionicons name="card" size={20} color={COLORS.primary} />
           <Text style={styles.infoTitle}>Account Information</Text>
         </View>
-        
+
         <View style={styles.infoGrid}>
-          <View style={styles.infoItem}>
-            <Text style={styles.infoLabel}>Account Number</Text>
-            <Text style={styles.infoValue}>{cardNumber}</Text>
+          <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Account Number</Text>
+              <Text style={styles.infoValue}>{cardNumber}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Card Type</Text>
+              <Text style={styles.infoValue}>{cardType} Credit</Text>
+            </View>
           </View>
-          <View style={styles.infoItem}>
-            <Text style={styles.infoLabel}>Card Type</Text>
-            <Text style={styles.infoValue}>{cardType} Credit</Text>
+          <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Status</Text>
+              <Text style={[styles.infoValue, styles.statusActive]}>Active</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Credit Limit</Text>
+              <Text style={styles.infoValue}>{getCurrencySymbol(currency)}{balance}</Text>
+            </View>
           </View>
-          <View style={styles.infoItem}>
-            <Text style={styles.infoLabel}>Status</Text>
-            <Text style={[styles.infoValue, styles.statusActive]}>Active</Text>
-          </View>
-          <View style={styles.infoItem}>
-            <Text style={styles.infoLabel}>Credit Limit</Text>
-            <Text style={styles.infoValue}>{getCurrencySymbol(currency)}{balance}</Text>
-          </View>
+
         </View>
       </View>
 
       {/* Control Panel */}
       <View style={styles.controlPanel}>
         <TouchableOpacity style={styles.flipButton} onPress={flipCard}>
-          <Ionicons 
-            name={isFlipped ? "eye" : "eye-off"} 
-            size={18} 
+          <Ionicons
+            name={isFlipped ? "eye" : "eye-off"}
+            size={18}
             color={COLORS.white}
           />
           <Text style={styles.flipButtonText}>
@@ -209,7 +217,17 @@ const Card: React.FC<CardProps> = ({
           </Text>
         </TouchableOpacity>
       </View>
+
+      <View>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>
+            Request USD Card
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
+    </ScrollView>
+    </SafeScreen>
   );
 };
 
