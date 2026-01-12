@@ -4,6 +4,7 @@ import { styles } from '../assets/styles/home.styles';
 import { COLORS } from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 import DropDownPicker from 'react-native-dropdown-picker';
+import {router} from 'expo-router';
 
 const exchangeRates = {
   USD: 1.0,
@@ -84,23 +85,19 @@ export const BalanceCard = ({ summary, onCurrencyChange }) => {
 
   // Action handlers
   const handleSend = () => {
-    console.log('Send money pressed');
-    // Add your send money logic here
+    router.push('/(actions)/send');
   };
 
   const handleAddMoney = () => {
-    console.log('Add money pressed');
-    // Add your add money logic here
+    router.push('/(actions)/addMoney');
   };
 
   const handleConvert = () => {
-    console.log('Convert currency pressed');
-    // Add your convert currency logic here
+    router.push('/(actions)/convert');
   };
 
   const handleWithdraw = () => {
-    console.log('Withdraw pressed');
-    // Add your withdraw logic here
+    router.push('/(actions)/withdraw');
   };
 
   return (

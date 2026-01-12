@@ -1,4 +1,3 @@
-// app/(tabs)/dashboard.tsx (updated version)
 import { useRouter } from 'expo-router';
 import {
   Alert,

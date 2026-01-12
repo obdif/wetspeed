@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 import { COLORS } from "../../constants/colors";
 
 const { width } = Dimensions.get("window");
-const AVATAR_SIZE = width * 0.25; // Avatar is 25% of screen width for responsiveness
+const AVATAR_SIZE = width * 0.25; 
 
 export const styles = StyleSheet.create({
 container: {
